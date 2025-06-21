@@ -1,1 +1,1 @@
-# StellarURL
+# StellarIQ
