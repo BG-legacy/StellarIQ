@@ -21,6 +21,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // Import routes
 const { authRoutes } = require('./auth');
+const { 
+  userRoutes, 
+  careersRoutes, 
+  skillsRoutes, 
+  pivotRoutes, 
+  aiRoutes 
+} = require('./routes');
 
 // Basic route
 app.get('/', (req, res) => {
@@ -29,6 +36,11 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       auth: '/api/auth',
+      user: '/api/user',
+      careers: '/api/careers',
+      skills: '/api/skills',
+      pivot: '/api/pivot',
+      ai: '/api/ai',
       health: '/api/health'
     }
   });
@@ -36,6 +48,11 @@ app.get('/', (req, res) => {
 
 // API Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/careers', careersRoutes);
+app.use('/api/skills', skillsRoutes);
+app.use('/api/pivot', pivotRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
